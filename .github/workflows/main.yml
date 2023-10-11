@@ -23,10 +23,5 @@ jobs:
         npm ci
         npm run build
 
-    - name: Deploy Contentful App
-      run: |
-       organization-id: ${{ secrets.ORGANIZATION_ID }}
-       app-definition-id: ${{ secrets.APP_DEFINITION_ID }}
-       access-token: ${{ secrets.ACCESS_TOKEN }}
-       folder: /home/runner/work/contentfulsample/contentfulsample
+   
 
