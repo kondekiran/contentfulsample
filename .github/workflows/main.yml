@@ -11,9 +11,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Set environment variable
-      run: echo "RUNNER_HOME=$HOME" >> $GITHUB_ENV
-
     - name: Checkout code
       uses: actions/checkout@v2
 
