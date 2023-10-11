@@ -21,18 +21,10 @@ jobs:
       uses: actions/setup-node@v2
       with:
         node-version: 14
-
-    - name: Install Contentful CLI
-      run: npm install -g contentful-cli
-
-    - name: Install app dependencies and build
+    - name: Install app dependencies 
       run: |
-        cd /home/runner/work/contentfulsample/contentfulsample
         npm ci
         npm run build
-
-    - name: List files in the directory
-      run: ls -R /home/runner/work/contentfulsample/contentfulsample
 
     - name: Deploy Contentful App
       run: |
