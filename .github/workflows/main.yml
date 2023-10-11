@@ -18,10 +18,13 @@ jobs:
     - run: |
         npm ci
         npm run build
-        - uses: contentful/actions-app-deploy@v1
-        with:
-        organization-id: ${{ secrets.ORGANIZATION_ID }}
-        app-definition-id: ${{ secrets.APP_DEFINITION_ID }}
-        access-token: ${{ secrets.ACCESS_TOKEN }}
-        folder: /home/runner/work/contentfulsample/contentfulsample
+    - name: Deploy Contentful App
+      uses: contentful/actions-app-deploy@v1
+      with:
+         organization-id: ${{ secrets.CONTENTFUL_ORG_ID }}
+         app-definition-id: ${{ secrets.APP_DEFINITION_ID }}
+         access-token: ${{ secrets.CONTENTFUL_ACCESS_TOKEN }}
+         folder: /home/runner/work/contentfulsample/contentfulsample
+         allow-tracking: true
+        
 
