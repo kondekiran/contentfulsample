@@ -11,19 +11,33 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - name: Set environment variable
+      run: echo "RUNNER_HOME=$HOME" >> $GITHUB_ENV
+
     - name: Checkout code
       uses: actions/checkout@v2
 
-    - name: Install dependencies and build
+    - name: Install Node.js and dependencies
+      uses: actions/setup-node@v2
+      with:
+        node-version: 14
+
+    - name: Install Contentful CLI
+      run: npm install -g contentful-cli
+
+    - name: Install app dependencies and build
       run: |
+        cd /home/runner/work/contentfulsample/contentfulsample
         npm ci
         npm run build
 
+    - name: List files in the directory
+      run: ls -R /home/runner/work/contentfulsample/contentfulsample
+
     - name: Deploy Contentful App
-      uses: contentful/actions-app-deploy@v1
-      with:
-        organization-id: ${{ secrets.CONTENTFUL_ORG_ID }}
-        app-definition-id: ${{ secrets.APP_DEFINITION_ID }}
-        access-token: ${{ secrets.CONTENTFUL_ACCESS_TOKEN }}
-        folder: /home/runner/work/contentfulsample/contentfulsample
-        allow-tracking: true
+      run: |
+       organization-id: ${{ secrets.ORGANIZATION_ID }}
+       app-definition-id: ${{ secrets.APP_DEFINITION_ID }}
+       access-token: ${{ secrets.ACCESS_TOKEN }}
+       folder: /home/runner/work/contentfulsample/contentfulsample
+
