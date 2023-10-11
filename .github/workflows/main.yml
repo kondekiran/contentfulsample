@@ -1,3 +1,4 @@
+
 name: Deploy Contentful App
 
 on:
@@ -20,6 +21,7 @@ jobs:
         node-version: 14
     - name: Install app dependencies 
       run: |
+        npm update
         npm ci
         npm run build
 
