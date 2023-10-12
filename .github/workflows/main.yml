@@ -24,6 +24,12 @@ jobs:
         npm update
         npm ci
         npm run build
+    - uses: contentful/actions-app-deploy@v2
+      with:
+       organization-id: ${{ secrets.ORGANIZATION_ID }}
+       app-definition-id: ${{ secrets.APP_DEFINITION_ID }}
+       access-token: ${{ secrets.ACCESS_TOKEN }}
+       folder: /home/runner/work/contentfulsample/contentfulsample
 
    
 
