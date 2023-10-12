@@ -24,7 +24,7 @@ jobs:
         npm update
         npm ci
         npm run build
-    - uses: contentful/actions-app-deploy@v2
+    - uses: contentful/actions-app-deploy@v1
       with:
        organization-id: ${{ secrets.ORGANIZATION_ID }}
        app-definition-id: ${{ secrets.APP_DEFINITION_ID }}
