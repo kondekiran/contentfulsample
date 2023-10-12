@@ -30,7 +30,7 @@ jobs:
        organization-id: ${{ secrets.CONTENTFUL_ORG_ID }}
        app-definition-id: ${{ secrets.APP_DEFINITION_ID }}
        access-token: ${{ secrets.CONTENTFUL_ACCESS_TOKEN }}
-       folder: /.next
+       folder: /.build
 
    
 
