@@ -23,7 +23,7 @@ yarn create contentful-app --example home-location
 In the project directory, you can run:
 
 #### `npm start`
-
+#kiran
 Creates or updates your app definition in Contentful, and runs the app in development mode.
 Open your app to view it in the browser.
 
